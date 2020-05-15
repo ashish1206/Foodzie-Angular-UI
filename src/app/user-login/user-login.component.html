@@ -1,2 +1,28 @@
-<p>user-login works!</p>
-hello
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-4 col-sm-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>Login</h1>
+      </div>
+      <div class="panel-body">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" formControlName="email" placeholder="Enter your email" id="email">
+            <p *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.dirty" class="alert alert-danger">This field is required!</p>
+          </div>
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password"s class="form-control" formControlName="password" placeholder="Enter your password" id="password">
+              <p *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.dirty" class="alert alert-danger">This field is required!</p>
+            </div>
+            <button type="submit">submit</button>
+      </form>
+      </div>
+    </div>
+    </div>
+
+  </div>
+  </div>
