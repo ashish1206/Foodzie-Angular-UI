@@ -5,5 +5,5 @@ export class User {
     password: String;
     phoneNumber: String;
     username: String;
-    address: Address[];
+    addresses: Address[];
 }
