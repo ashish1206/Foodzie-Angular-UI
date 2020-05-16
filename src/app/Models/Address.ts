@@ -1,7 +1,8 @@
 export class Address{
-    addressLine1: String;
-	addressLine2: String;
-	city: String;
-	state: String;
-	pin: String;
+    addressLine1: string;
+	addressLine2: string;
+	city: string;
+	state: string;
+	pin: string;
+	email: string
 }

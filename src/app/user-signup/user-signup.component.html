@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-sm-4 col-sm-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1>Signup</h1>
+        </div>
+        <div class="panel-body">
+          <form [formGroup]="signupForm" (ngSubmit)="signup()">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" formControlName="email" placeholder="Enter your email" id="email">
+              <p *ngIf="signupForm.controls.email.invalid && signupForm.controls.email.dirty" class="alert alert-danger">This field is required!</p>
+            </div>
+            <div class="form-group">
+                <label for="email">Username</label>
+                <input type="text" class="form-control" formControlName="username" placeholder="Enter your username" id="username">
+                <p *ngIf="signupForm.controls.username.invalid && signupForm.controls.username.dirty" class="alert alert-danger">This field is required!</p>
+              </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"s class="form-control" formControlName="password" placeholder="Enter your password" id="password">
+                <p *ngIf="signupForm.controls.password.invalid && signupForm.controls.password.dirty" class="alert alert-danger">This field is required!</p>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone No.</label>
+                <input type="number" class="form-control" formControlName="phoneNumber" placeholder="Enter your phoneNumber" id="phoneNumber">
+                <p *ngIf="signupForm.controls.phoneNumber.invalid && signupForm.controls.phoneNumber.dirty" class="alert alert-danger">This field is required!</p>
+              </div>
+              <button type="submit" class="btn btn-default">singup</button>
+        </form>
+        </div>
+      </div>
+      </div>
+  
+    </div>
+    </div>
+  

@@ -9,7 +9,9 @@ export const environment = {
   production: false,
   userLoginAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/login',
   getSellerByCityAPIUrl :  'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/getsellers',
-  getSellerMenuAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/menu'
+  getSellerMenuAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/menu',
+  userSignupAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/signup',
+  userAddAddressAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/address'
 };
 
 /*

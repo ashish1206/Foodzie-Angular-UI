@@ -7,14 +7,18 @@ import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SellerMenuComponent } from './seller-menu/seller-menu.component'
+import { SellerMenuComponent } from './seller-menu/seller-menu.component';
+import { UserSignupComponent } from './user-signup/user-signup.component';
+import { UserAddressComponent } from './user-address/user-address.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
     UserHomeComponent,
-    SellerMenuComponent
+    SellerMenuComponent,
+    UserSignupComponent,
+    UserAddressComponent
   ],
   imports: [
     BrowserModule,

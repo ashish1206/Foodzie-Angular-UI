@@ -1,6 +1,5 @@
 import { SellerServiceService } from './../seller-services/seller-service.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { User } from './../Models/User'
 import { Seller } from './../Models/Seller'
 import { Address } from './../Models/Address'
@@ -22,12 +21,14 @@ export class UserHomeComponent implements OnInit {
     private route: Router) { }
 
   ngOnInit(): void {
-    // this.address = sessionStorage.getItem('user').address
     this.user = JSON.parse(sessionStorage.getItem("user"));
     this.currAddress = JSON.parse(sessionStorage.getItem("currAddress"));
     this.addresses = this.user.addresses
-    console.log(this.addresses)
-    this.sellerServiceService.getSellersByCity("bangalore").subscribe(
+    this.getSellerByCity();
+  }
+
+  getSellerByCity(){
+    this.sellerServiceService.getSellersByCity(this.currAddress?.city).subscribe(
       (response) => {
         this.sellers = response;
       }
@@ -41,6 +42,7 @@ export class UserHomeComponent implements OnInit {
   updateCurrAddress(){
     this.currAddress = this.tempCurrAddress;
     sessionStorage.setItem("currAddress",JSON.stringify(this.currAddress));
+    this.getSellerByCity();
     console.log(sessionStorage.getItem("currAddress"));
   }
 
