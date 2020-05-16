@@ -26,6 +26,10 @@ export class UserAddressComponent implements OnInit {
   addAddress() {
     this.address = this.addressForm.value as Address;
     this.address.email = JSON.parse(sessionStorage.getItem('user')).email;
-    this.userService.addAddress(this.address)
+    this.userService.addAddress(this.address).subscribe(
+      res=>{
+        
+      }
+    )
   }
 }

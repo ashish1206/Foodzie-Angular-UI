@@ -9,7 +9,11 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SellerMenuComponent } from './seller-menu/seller-menu.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
-import { UserAddressComponent } from './user-address/user-address.component'
+import { UserAddressComponent } from './user-address/user-address.component';
+import { SellerLoginComponent } from './seller-login/seller-login.component';
+import { SellerRegisterComponent } from './seller-register/seller-register.component';
+import { UserCartComponent } from './user-cart/user-cart.component';
+import { SellerHomeComponent } from './seller-home/seller-home.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { UserAddressComponent } from './user-address/user-address.component'
     UserHomeComponent,
     SellerMenuComponent,
     UserSignupComponent,
-    UserAddressComponent
+    UserAddressComponent,
+    SellerLoginComponent,
+    SellerRegisterComponent,
+    UserCartComponent,
+    SellerHomeComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,10 @@ export const environment = {
   getSellerByCityAPIUrl :  'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/getsellers',
   getSellerMenuAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/menu',
   userSignupAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/signup',
-  userAddAddressAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/address'
+  userAddAddressAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/address',
+  sellerLoginAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/login',
+  sellerRegisterAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/register',
+  getCartItemAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/cart/getcart'
 };
 
 /*

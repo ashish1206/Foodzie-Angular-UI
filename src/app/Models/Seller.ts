@@ -3,6 +3,6 @@ export class Seller {
     sName : string;
 	password : string;
 	email : string;
-	phoneNumber : string;
+	phoneNumber : number;
 	address : Address;
 }

@@ -1,3 +1,4 @@
+import { FormBuilder } from '@angular/forms';
 import { SellerServiceService } from './../seller-services/seller-service.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from './../Models/User'
@@ -17,7 +18,7 @@ export class UserHomeComponent implements OnInit {
   addresses: Address[];
   currAddress: Address;
   tempCurrAddress: Address;
-  constructor( private sellerServiceService: SellerServiceService,
+  constructor(private formBuilder: FormBuilder, private sellerServiceService: SellerServiceService,
     private route: Router) { }
 
   ngOnInit(): void {

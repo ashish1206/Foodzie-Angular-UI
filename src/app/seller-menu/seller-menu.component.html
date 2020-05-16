@@ -1,3 +1,26 @@
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Stay Hungry</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a routeLink="/user/home">Home</a></li>
+      <li data-toggle="modal" data-target="#myModal"><a>Current Address</a></li>
+      <li><a href="">Profile</a></li>
+    </ul>
+    <div class="navbar-form navbar-left" >
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="basic-addon1">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 <div class="container-fluid">
     <div class="row">
         <div *ngFor="let dish of menu" class="col-md-3">

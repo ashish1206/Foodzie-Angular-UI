@@ -10,7 +10,19 @@ import { Observable } from 'rxjs';
 })
 export class SellerServiceService {
 
+  private headers = new HttpHeaders({'Content-Type':'application/json'})
+
   constructor(private http: HttpClient) { }
+
+  login(seller: Seller): Observable<Seller>{
+    const url = environment.sellerLoginAPIUrl
+    return this.http.post<Seller>(url, seller, {headers:this.headers})
+  }
+
+  register(seller: Seller): Observable<string>{
+    const url = environment.sellerRegisterAPIUrl
+    return this.http.post<string>(url, seller, {headers:this.headers})
+  }
 
   getSellersByCity(city:string): Observable<Seller[]> {
     const url = environment.getSellerByCityAPIUrl
