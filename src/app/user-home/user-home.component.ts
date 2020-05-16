@@ -28,7 +28,7 @@ export class UserHomeComponent implements OnInit {
   }
 
   getSellerMenu(email: string){
-    this.route.navigate(['/seller/menu', email])
+    this.route.navigate(['/seller/menu', email], { skipLocationChange: true})
   }
 
 }

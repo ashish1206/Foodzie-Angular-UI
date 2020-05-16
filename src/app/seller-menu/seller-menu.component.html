@@ -1,1 +1,15 @@
-<p>seller-menu works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let dish of menu" class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{dish.dishName}}</h5>
+                  <p class="card-text">{{dish.description}}</p>
+                  <p class="card-text">{{dish.price}}</p>
+                  <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
