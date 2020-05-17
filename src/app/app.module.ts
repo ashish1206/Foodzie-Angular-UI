@@ -13,7 +13,10 @@ import { UserAddressComponent } from './user-address/user-address.component';
 import { SellerLoginComponent } from './seller-login/seller-login.component';
 import { SellerRegisterComponent } from './seller-register/seller-register.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
-import { SellerHomeComponent } from './seller-home/seller-home.component'
+import { SellerHomeComponent } from './seller-home/seller-home.component';
+import { SellerProfileComponent } from './seller-profile/seller-profile.component';
+import { SellerNavComponent } from './seller-nav/seller-nav.component';
+import { SellerOrdersComponent } from './seller-orders/seller-orders.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { SellerHomeComponent } from './seller-home/seller-home.component'
     SellerLoginComponent,
     SellerRegisterComponent,
     UserCartComponent,
-    SellerHomeComponent
+    SellerHomeComponent,
+    SellerProfileComponent,
+    SellerNavComponent,
+    SellerOrdersComponent
   ],
   imports: [
     BrowserModule,

@@ -4,4 +4,5 @@ export class Menu {
 	description : string;
 	price : string;
 	quantity : number;
+	email: string;
 }

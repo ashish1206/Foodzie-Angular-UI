@@ -5,26 +5,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-seller-home',
-  templateUrl: './seller-home.component.html',
-  styleUrls: ['./seller-home.component.css']
+  selector: 'app-seller-nav',
+  templateUrl: './seller-nav.component.html',
+  styleUrls: ['./seller-nav.component.css']
 })
-export class SellerHomeComponent implements OnInit {
+export class SellerNavComponent implements OnInit {
 
-  menu: Menu[];
+  addDishForm: FormGroup;
   sellerEmail: string;
 
   constructor(private formBuilder:FormBuilder, private route: Router, private sellerServiceService: SellerServiceService) { }
 
   ngOnInit(): void {
     this.sellerEmail =JSON.parse(sessionStorage.getItem('seller')).email;
-    this.getSellerMenu();
+    this.addDishForm = this.formBuilder.group({
+      dishName: ['', Validators.required],
+      description: ['',Validators.required],
+      price: ['',Validators.required]
+    })
   }
 
-  getSellerMenu(){
-    this.sellerServiceService.getSellerMenu(this.sellerEmail).subscribe(
-      response=>this.menu=response
+  addDish() {
+    let dish = this.addDishForm.value as Menu
+    dish.email = this.sellerEmail;
+    this.sellerServiceService.addDish(dish).subscribe(
+      res=>{
+        
+      }
     )
   }
-
 }

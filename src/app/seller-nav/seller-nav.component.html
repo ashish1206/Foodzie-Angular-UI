@@ -1,4 +1,4 @@
-<!-- <nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand">Stay Hungry</a>
@@ -27,6 +27,7 @@
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
         
+          <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -59,22 +60,4 @@
         </div>
       </div>
 
-  </div> -->
-
-  <app-seller-nav></app-seller-nav>
-
-  <div class="container-fluid">
-    <div class="row">
-        <div *ngFor="let dish of menu" class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">{{dish.dishName}}</h5>
-                  <p class="card-text">{{dish.description}}</p>
-                  <p class="card-text">{{dish.price | currency: 'INR'}}</p>
-                  <button type="button" class="btn btn-primary">Over</button>
-                </div>
-              </div>
-        </div>
-    </div>
-</div>
+  </div>

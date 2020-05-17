@@ -13,10 +13,11 @@ export class UserCartComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    let email = JSON.parse(sessionStorage.getItem('user')).email
-    this.userService.getCartItems(email).subscribe(
-      res => this.cartItems = res
-    )
+    this.cartItems = JSON.parse(sessionStorage.getItem('cart'));
+    // let email = JSON.parse(sessionStorage.getItem('user')).email
+    // this.userService.getCartItems(email).subscribe(
+    //   res => this.cartItems = res
+    // )
   }
 
 }

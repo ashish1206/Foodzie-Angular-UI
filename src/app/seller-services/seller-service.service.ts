@@ -1,6 +1,8 @@
+import { Address } from './../Models/Address';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Seller } from './../Models/Seller'
+import { Order } from './../Models/Order'
 import { Menu } from './../Models/Menu'
 import { environment } from './../../environments/environment'
 import { Observable } from 'rxjs';
@@ -38,6 +40,25 @@ export class SellerServiceService {
     return this.http.get<Menu[]>(url, {
       params: {
         email: email
+      }
+    })
+  }
+
+  addDish(dish: Menu): Observable<string>{
+    const url = environment.addDishAPIUrl
+    return this.http.put<string>(url,dish, {headers:this.headers})
+  }
+
+  addAddress(address: Address): Observable<string>{
+    const url = environment.addAddressAPIUrl;
+    return this.http.put<string>(url, address, {headers:this.headers})
+  }
+
+  getSellersOrder(sellerEmail: string):Observable<Order[]> {
+    const url = environment.getSellerOrderAPIUrl;
+    return this.http.get<Order[]>(url, {
+      params:{
+        sellerEmail: sellerEmail
       }
     })
   }

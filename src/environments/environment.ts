@@ -14,7 +14,10 @@ export const environment = {
   userAddAddressAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/address',
   sellerLoginAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/login',
   sellerRegisterAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/register',
-  getCartItemAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/cart/getcart'
+  getCartItemAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/cart/getcart',
+  addDishAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/addmenu',
+  addAddressAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/address',
+  getSellerOrderAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/order/getsellerorder'
 };
 
 /*

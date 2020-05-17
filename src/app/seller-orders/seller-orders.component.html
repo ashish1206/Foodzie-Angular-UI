@@ -1,0 +1,26 @@
+<app-seller-nav></app-seller-nav>
+
+<div class="container-fluid row col-md-8 col-md-offset-2">
+    <div *ngFor="let order of orders" class="panel panel-default">
+    <div class="panel-heading">Order ID: {{order.orderId}}    Customer: {{order.userEmail}} </div>
+    <div class="panel-body">
+        <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Dish Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total Price</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let dish of order.dishes">
+              <tr>
+                <td>{{dish.dishName}}</td>
+                <td>{{dish.quantity}}</td>
+                <td>{{dish.price * dish.quantity}}</td>
+                <td></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+<app-seller-nav></app-seller-nav>
+
+  <div class="container-fluid">
+    <div class="row">
+  
+      <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1>Seller Details</h1>
+        </div>
+        <div class="panel-body">
+          <form [formGroup]="updateForm" (ngSubmit)="update()">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" formControlName="email" [placeholder]="seller.email" id="email" disabled>
+              <p *ngIf="updateForm.controls.email.invalid && updateForm.controls.email.dirty" class="alert alert-danger">This field is required!</p>
+            </div>
+            <div class="form-group">
+                <label for="sName">Name</label>
+                <input type="text" class="form-control" formControlName="sName" placeholder="Enter your name" id="sName">
+                <p *ngIf="updateForm.controls.sName.invalid && updateForm.controls.sName.dirty" class="alert alert-danger">This field is required!</p>
+              </div>
+            <!-- <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" formControlName="password" [placeholder]="**********" id="password">
+                <p *ngIf="updateForm.controls.password.invalid && updateForm.controls.password.dirty" class="alert alert-danger">This field is required!</p>
+            </div> -->
+            <div class="form-group">
+                <label for="phoneNumber">Phone No.</label>
+                <input type="number" class="form-control" formControlName="phoneNumber" placeholder="Enter your phoneNumber" id="phoneNumber">
+                <p *ngIf="updateForm.controls.phoneNumber.invalid && updateForm.controls.phoneNumber.dirty" class="alert alert-danger">This field is required!</p>
+            </div>
+            <div class="row">
+              <button type="submit" class="btn btn-default col-sm-4 col-sm-offset-1">Update</button>
+              <button data-toggle="modal" data-target="#changePass" type="button" class="btn btn-default col-sm-4 col-sm-offset-1">change password</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+      
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h1>Update Address</h1>
+            </div>
+            <div class="panel-body">
+                <form [formGroup]="addressForm" (ngSubmit)="updateAddress()">
+                    <div class="form-group">
+                      <label for="addressLine1">Address Line 1</label>
+                      <input type="text" class="form-control" formControlName="addressLine1" placeholder="Flat/street/Apartment" id="addressLine1">
+                      <p *ngIf="addressForm.controls.addressLine1.invalid && addressForm.controls.addressLine1.dirty" class="alert alert-danger">This field is required!</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="addressLine2">Address Line 2</label>
+                        <input type="text" class="form-control" formControlName="addressLine2" placeholder="Landmark/Localilty" id="addressLine2">
+                        <p *ngIf="addressForm.controls.addressLine2.invalid && addressForm.controls.addressLine2.dirty" class="alert alert-danger">This field is required!</p>
+                      </div>
+                    <div class="form-group">
+                        <label for="city">city</label>
+                        <input type="city" class="form-control" formControlName="city" placeholder="Enter your city" id="city">
+                        <p *ngIf="addressForm.controls.city.invalid && addressForm.controls.city.dirty" class="alert alert-danger">This field is required!</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" formControlName="state" placeholder="Enter state" id="state">
+                        <p *ngIf="addressForm.controls.state.invalid && addressForm.controls.state.dirty" class="alert alert-danger">This field is required!</p>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-default col-sm-4 col-sm-offset-4" (click)="updateAddress()">update</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+  
+    </div>
+</div>
+
+<div class="container-fluid">
+
+  <div class="modal fade" id="changePass" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Change Password</h4>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="changePassForm" >
+                  <div class="form-group">
+                      <label for="dishName">Current password:</label>
+                      <input type="password" class="form-control" formControlName="currPassword" placeholder="Enter current password" id="currPassword">
+                      <p *ngIf="changePassForm.controls.currPassword.invalid && changePassForm.controls.currPassword.dirty" class="alert alert-danger">This field is required!</p>
+                  </div>
+                  <div class="form-group">
+                      <label for="newPassword">New password:</label>
+                      <input type="password" class="form-control" formControlName="newPassword" placeholder="Enter new password" id="newPassword">
+                      <p *ngIf="changePassForm.controls.newPassword.invalid && changePassForm.controls.newPassword.dirty" class="alert alert-danger">This field is required!</p>
+                  </div>
+                  <div class="form-group">
+                      <label for="price">Confirm new password:</label>
+                      <input type="password" class="form-control" formControlName="confPassword" placeholder="Confirm password" id="confPassword">
+                      <p *ngIf="changePassForm.controls.confPassword.invalid && changePassForm.controls.confPassword.dirty" class="alert alert-danger">This field is required!</p>
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="changePass()">update</button>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+
+</div>

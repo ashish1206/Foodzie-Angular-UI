@@ -9,7 +9,7 @@ export class AccessGaurdService implements CanActivate{
   constructor(private route: Router) { }
 
   canActivate(){
-    if(sessionStorage.getItem('user')!=null){
+    if(sessionStorage.getItem('user')!=null || sessionStorage.getItem('seller')!=null){
       return true
     }
     else{

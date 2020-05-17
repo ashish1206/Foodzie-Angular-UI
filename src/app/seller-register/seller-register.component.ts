@@ -22,7 +22,7 @@ export class SellerRegisterComponent implements OnInit {
       email: ['', Validators.required],
       password: ['',Validators.required],
       phoneNumber: ['', Validators.required],
-      name: ['',Validators.required]
+      sName: ['',Validators.required]
     })
   }
 
@@ -30,7 +30,7 @@ export class SellerRegisterComponent implements OnInit {
     this.seller = this.registerForm.value as Seller;
     this.sellerService.register(this.seller).subscribe(
       res=>{
-        
+        this.route.navigate['/seller/login']
       }
     )
   }
