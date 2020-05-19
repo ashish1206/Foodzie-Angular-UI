@@ -1,4 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from './../Models/User';
+import { Order } from './../Models/Order';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Address } from './../Models/Address'
 import { Menu } from './../Models/Menu'
@@ -24,6 +26,34 @@ export class UserService {
     return this.http.get<Menu[]>(url, {
       params:{
         email: email
+      }
+    })
+  }
+
+  getUserOrders(userEmail:string): Observable<Order[]> {
+    const url = environment.getUserOrderAPIUrl;
+    return this.http.get<Order[]>(url, {
+      params: {
+        userEmail: userEmail
+      }
+    })
+  }
+
+  updateUserAddress(address:Address): Observable<string>{
+    const url = environment.updateUserAddressAPIUrl;
+    return this.http.put(url, address, {responseType:'text'});
+  }
+
+  changeUserPass(user: User): Observable<string>{
+    const url = environment.changeUserPassAPIUrl;
+    return this.http.put<string>(url, user, {headers:this.headers});
+  }
+
+  deleteUserAddress(addId):Observable<string>{
+    const url = environment.deleteAddPassAPIUrl;
+    return this.http.delete<string>(url, {
+      params:{
+        addId: addId
       }
     })
   }

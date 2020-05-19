@@ -24,7 +24,7 @@ export class UserHomeComponent implements OnInit {
   ngOnInit(): void {
     this.user = JSON.parse(sessionStorage.getItem("user"));
     this.currAddress = JSON.parse(sessionStorage.getItem("currAddress"));
-    this.addresses = this.user.addresses
+    this.addresses = JSON.parse(sessionStorage.getItem("addresses"));
     this.getSellerByCity();
   }
 

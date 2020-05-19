@@ -16,7 +16,10 @@ import { UserCartComponent } from './user-cart/user-cart.component';
 import { SellerHomeComponent } from './seller-home/seller-home.component';
 import { SellerProfileComponent } from './seller-profile/seller-profile.component';
 import { SellerNavComponent } from './seller-nav/seller-nav.component';
-import { SellerOrdersComponent } from './seller-orders/seller-orders.component'
+import { SellerOrdersComponent } from './seller-orders/seller-orders.component';
+import { UserNavComponent } from './user-nav/user-nav.component';
+import { UserOrdersComponent } from './user-orders/user-orders.component';
+import { UserProfileComponent } from './user-profile/user-profile.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { SellerOrdersComponent } from './seller-orders/seller-orders.component'
     SellerHomeComponent,
     SellerProfileComponent,
     SellerNavComponent,
-    SellerOrdersComponent
+    SellerOrdersComponent,
+    UserNavComponent,
+    UserOrdersComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

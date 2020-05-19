@@ -1,3 +1,4 @@
+import { Address } from './../Models/Address';
 import { Router } from '@angular/router';
 import { UserLoginService } from './user-login.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,6 +14,7 @@ export class UserLoginComponent implements OnInit {
 
   user: User;
   loginForm: FormGroup;
+  addresses: Address[];
   constructor(private formBuilder: FormBuilder, private userLoginService: UserLoginService,
     private route: Router) { }
 
@@ -30,7 +32,9 @@ export class UserLoginComponent implements OnInit {
     this.userLoginService.login(this.user).subscribe(
       (response) => {
         this.user = response;
+        this.addresses = this.user.addresses;
         sessionStorage.setItem("user", JSON.stringify(this.user));
+        sessionStorage.setItem("addresses", JSON.stringify(this.addresses));
         this.route.navigate(['/user/home']);
       }
     )

@@ -1,9 +1,10 @@
 import { Address } from './Address';
 
 export class User {
-    email: String;
-    password: String;
-    phoneNumber: String;
-    username: String;
+    email: string;
+    password: string;
+    newPassword: string
+    phoneNumber: string;
+    username: string;
     addresses: Address[];
 }

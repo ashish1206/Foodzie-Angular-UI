@@ -1,4 +1,4 @@
-
+<!-- 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -6,7 +6,6 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a [routerLink]="['/user/home']">Home</a></li>
-      <li data-toggle="modal" data-target="#myModal"><a>Current Address</a></li>
       <li><a href="">Profile</a></li>
       <li><a [routerLink]="['/user/cart']">Cart</a></li>
     </ul>
@@ -14,24 +13,22 @@
       <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="basic-addon1">
         <div class="input-group-btn">
-          <button class="btn btn-default" type="button">
+          <button class="btn btn-primary" type="button">
             <i class="glyphicon glyphicon-search"></i>
           </button>
         </div>
       </div>
     </div>
   </div>
-</nav>
+</nav> -->
+
+<app-user-nav></app-user-nav>
 
 <div class="container-fluid">
 
-<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Current Address</button> -->
-  
-  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -48,14 +45,16 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="updateCurrAddress()">update</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateCurrAddress()">update</button>
         </div>
       </div>
 
     </div>
   </div>
+  </div>
 
-
+<!-- <app-user-nav></app-user-nav> -->
+<div class="container-fluid">
     <div class="row">
         <div *ngFor="let seller of sellers" class="col-md-3">
             <div class="card" style="width: 18rem;">
@@ -66,18 +65,9 @@
                   <a class="btn btn-primary" (click)="getSellerMenu(seller)">Check Menu</a>
                 </div>
               </div>
-              <!-- <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div> -->
+        </div>
+        <div id="locButton">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Location</button>
         </div>
     </div>
-
-    
-
-
-</div>
+    </div>

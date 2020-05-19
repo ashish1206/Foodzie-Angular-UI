@@ -1,3 +1,5 @@
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { SellerOrdersComponent } from './seller-orders/seller-orders.component';
 import { SellerProfileComponent } from './seller-profile/seller-profile.component';
 import { SellerHomeComponent } from './seller-home/seller-home.component';
@@ -24,7 +26,10 @@ const routes: Routes = [
   { path: 'user/signup', component:UserSignupComponent },
   { path: 'user/cart', component:UserCartComponent, canActivate:[AccessGaurdService]},
   { path: 'seller/profile', component:SellerProfileComponent, canActivate:[AccessGaurdService]},
-  { path: 'seller/orders', component:SellerOrdersComponent, canActivate:[AccessGaurdService]}
+  { path: 'seller/orders', component:SellerOrdersComponent, canActivate:[AccessGaurdService]},
+  { path: 'user/orders', component:UserOrdersComponent, canActivate:[AccessGaurdService]},
+  { path: 'user/profile', component:UserProfileComponent, canActivate:[AccessGaurdService]}
+
 ];
 
 @NgModule({
