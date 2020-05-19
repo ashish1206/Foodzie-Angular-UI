@@ -46,6 +46,52 @@
     </div>
 </div>
   
+<div class="container-fluid">
+
+  <div class="modal fade" id="addAddress" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Address</h4>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="addressForm" (ngSubmit)="addAddress()">
+              <div class="form-group">
+                <label for="addressLine1">Address Line 1</label>
+                <input type="text" class="form-control" formControlName="addressLine1" placeholder="Flat/street/Apartment" id="addressLine1" [value]="tempAddress?.addressLine1">
+                <p *ngIf="addressForm.controls.addressLine1.invalid && addressForm.controls.addressLine1.dirty" class="alert alert-danger">This field is required!</p>
+              </div>
+              <div class="form-group">
+                  <label for="addressLine2">Address Line 2</label>
+                  <input type="text" class="form-control" formControlName="addressLine2" placeholder="Landmark/Localilty" id="addressLine2" [value]="tempAddress?.addressLine2">
+                  <p *ngIf="addressForm.controls.addressLine2.invalid && addressForm.controls.addressLine2.dirty" class="alert alert-danger">This field is required!</p>
+                </div>
+              <div class="form-group">
+                  <label for="city">city</label>
+                  <input type="city" class="form-control" formControlName="city" placeholder="Enter your city" id="city" [value]="tempAddress?.city">
+                  <p *ngIf="addressForm.controls.city.invalid && addressForm.controls.city.dirty" class="alert alert-danger">This field is required!</p>
+              </div>
+              <div class="form-group">
+                  <label for="state">State</label>
+                  <input type="text" class="form-control" formControlName="state" placeholder="Enter state" id="state" [value]="tempAddress?.state">
+                  <p *ngIf="addressForm.controls.state.invalid && addressForm.controls.state.dirty" class="alert alert-danger">This field is required!</p>
+              </div>
+              <div class="row">
+                  <button type="submit" class="btn btn-primary col-sm-4 col-sm-offset-4" data-dismiss="modal" (click)="addAddress()">Add Address</button>
+              </div>
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateAddress()">update</button>
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <div class="container-fluid">
     <div class="row">
@@ -82,6 +128,11 @@
     </div>
 
         <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h1>Manage Address</h1>
+            </div>
+          </div>
             <div *ngFor="let address of addresses" class="panel panel-default">
                 <div class="panel-body">
                     Address: {{address.addressLine1 + ',' + address.addressLine2 + ',' + address.city}}
@@ -97,6 +148,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+              <button class="btn btn-primary col-sm-10 col-sm-offset-1" tyep="button" (click)="restAddressForm()" data-toggle="modal" data-target="#addAddress">Add Address</button>
+            </div>
+
         </div>
     </div>
 </div>

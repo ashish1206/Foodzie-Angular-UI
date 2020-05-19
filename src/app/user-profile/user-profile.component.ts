@@ -66,9 +66,9 @@ export class UserProfileComponent implements OnInit {
             this.addresses[index].state = updatedAdd.state
           }
           sessionStorage.setItem("addresses", JSON.stringify(this.addresses));
-          let currAddress = JSON.parse(sessionStorage.getItem("currAddress"));
-          if(this.tempAddress == currAddress){
-            currAddress = updatedAdd;
+          let currAddress : Address = JSON.parse(sessionStorage.getItem("currAddress"));
+          console.log(currAddress, this.tempAddress, updatedAdd);
+          if(this.tempAddress.addId == currAddress.addId){
             sessionStorage.setItem("currAddress", JSON.stringify(updatedAdd));
           }
       }
@@ -76,11 +76,15 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateUserDetails(){
-
+    let updatedUser = this.updateForm.value as User;
+    this.userService.updateUserDetails(updatedUser).subscribe(
+      res=>{
+        sessionStorage.setItem("user",JSON.stringify(updatedUser));
+      }
+    )
   }
 
   changePass(){
-    console.log(this.changePassForm.value)
     let user = this.changePassForm.value as User;
     user.email = this.user.email
     this.userService.changeUserPass(user).subscribe(
@@ -105,5 +109,25 @@ export class UserProfileComponent implements OnInit {
           }
       }
     )
+  }
+
+  addAddress(){
+    let address = this.addressForm.value as Address
+    address.email = this.user.email
+    this.userService.addAddress(address).subscribe(
+      (res)=>{
+        this.addresses.push(address);
+        sessionStorage.setItem("addresses", JSON.stringify(this.addresses));
+      }
+    )
+  }
+
+  restAddressForm(){
+    this.addressForm.setValue({
+      addressLine1: '',
+      addressLine2: '',
+      city: '',
+      state: '' 
+    })
   }
 }

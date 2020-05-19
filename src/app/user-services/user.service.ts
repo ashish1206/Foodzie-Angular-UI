@@ -18,7 +18,7 @@ export class UserService {
 
   addAddress(address: Address): Observable<string>{
     const url = environment.userAddAddressAPIUrl;
-    return this.http.post<string>(url, address, {headers:this.headers});
+    return this.http.post(url, address, {headers:this.headers, responseType:'text'});
   }
 
   getCartItems(email:string): Observable<Menu[]>{
@@ -57,4 +57,10 @@ export class UserService {
       }
     })
   }
+
+  updateUserDetails(user: User):Observable<string>{
+    const url = environment.updateUserDetailsAPIUrl;
+    return this.http.put(url, user, {responseType:'text'});
+  }
+
 }

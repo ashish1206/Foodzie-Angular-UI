@@ -4,24 +4,26 @@
 
 const HOSTNAME: string = "localhost";
 const PORT_NUMBER: number = 8080;
+const BASE_URL: string = 'http://'+ HOSTNAME + ':' + PORT_NUMBER ;
 
 export const environment = {
   production: false,
-  userLoginAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/login',
-  getSellerByCityAPIUrl :  'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/getsellers',
-  getSellerMenuAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/menu',
-  userSignupAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/signup',
-  userAddAddressAPIUrl: 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/address',
-  sellerLoginAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/login',
-  sellerRegisterAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/register',
-  getCartItemAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/cart/getcart',
-  addDishAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/addmenu',
-  addAddressAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/seller/address',
-  getSellerOrderAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/order/getsellerorder',
-  getUserOrderAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/order/getorder',
-  updateUserAddressAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/updateadd',
-  changeUserPassAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/changepass',
-  deleteAddPassAPIUrl : 'http://'+ HOSTNAME + ':' + PORT_NUMBER + '/user/deleteadd'
+  userLoginAPIUrl : BASE_URL+ '/user/login',
+  getSellerByCityAPIUrl :  BASE_URL+ '/seller/getsellers',
+  getSellerMenuAPIUrl: BASE_URL+ '/seller/menu',
+  userSignupAPIUrl: BASE_URL+ '/user/signup',
+  userAddAddressAPIUrl: BASE_URL+ '/user/address',
+  sellerLoginAPIUrl : BASE_URL+ '/seller/login',
+  sellerRegisterAPIUrl : BASE_URL+ '/seller/register',
+  getCartItemAPIUrl : BASE_URL+ '/cart/getcart',
+  addDishAPIUrl : BASE_URL+ '/seller/addmenu',
+  addAddressAPIUrl : BASE_URL+ '/seller/address',
+  getSellerOrderAPIUrl : BASE_URL+ '/order/getsellerorder',
+  getUserOrderAPIUrl : BASE_URL+ '/order/getorder',
+  updateUserAddressAPIUrl : BASE_URL+ '/user/updateadd',
+  changeUserPassAPIUrl : BASE_URL+ '/user/changepass',
+  deleteAddPassAPIUrl : BASE_URL+ '/user/deleteadd',
+  updateUserDetailsAPIUrl : BASE_URL+ '/user/updatedetails'
 };
 
 /*

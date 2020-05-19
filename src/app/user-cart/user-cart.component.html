@@ -1,21 +1,39 @@
 <app-user-nav></app-user-nav>
 <div class="container-fluid row col-md-8 col-md-offset-2">
     <div class="panel panel-default">
-    <div class="panel-heading">Cart</div>
-    <div *ngFor="let item of cartItems" class="panel-body">
-        <div class="row text-center">
-            <div class="col-md-4">
-                {{item.dish.dishName}}
+        <div class="panel-heading"><h4 class="text-center">Cart</h4></div>
+        <div *ngIf="cartItems!=null && cartItems.length!=0;else elseBlock">
+          <div class="panel-body">
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">seller name</th>
+                </tr>
+              </thead>
+                <tbody>
+                  <tr *ngFor="let item of cartItems"class="text-center">
+                    <td>{{item.dishName}}</td>
+                    <td><button class="btn btn-defalut" (click)="addItem(-1,item)">-</button>
+                      {{item.quantity}}
+                      <button class="btn btn-defalut" (click)="addItem(1,item)">+</button></td>
+                    <td>{{item.price*item.quantity | currency: 'INR'}}</td>   
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <p class="col-sm-8">Delivery Address: {{currAddress.addressLine1+','+currAddress.addressLine2+','+currAddress.city}}</p>
+              <p class="col-sm-4">Total price: {{totalPrice | currency: 'INR'}}</p>
             </div>
-            <div class="col-md-4">
-                <button class="btn btn-primary" >-</button>
-                {{item.quantity}}
-                <button class="btn btn-primary">+</button>
-            </div>
-            <div class="col-md-4">
-                {{item.dish.price | currency:'INR'}}
-            </div>
+          </div>
         </div>
-    </div>
-    </div>
+
+        <ng-template #elseBlock>
+          <div class="panel-body">
+            <h4 class="text-center">No item in cart</h4>
+          </div>
+      </ng-template>
+  </div>
 </div>
+

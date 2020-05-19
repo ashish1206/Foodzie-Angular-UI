@@ -1,3 +1,5 @@
+import { Cart } from './../Models/Cart';
+import { Address } from './../Models/Address';
 import { SellerServiceService } from './../seller-services/seller-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -12,15 +14,42 @@ export class SellerMenuComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private sellerServiceService:SellerServiceService) { }
 
-  menu: Menu[]
-  email: string
+  menu: Menu[];
+  cart: Cart;
+  sellerEmail: string;
   ngOnInit(): void {
     this.route.params.subscribe(
-      param=> this.email = param.email
+      param=> this.sellerEmail = param.email
     )
-    this.sellerServiceService.getSellerMenu(this.email).subscribe(
+    this.sellerServiceService.getSellerMenu(this.sellerEmail).subscribe(
       response=>this.menu=response
     )
+    this.cart = new Cart();
+
+    this.cart.sellerEmail = this.sellerEmail
+    this.cart.sellerName = ""
+    this.cart.dishes = []
+  }
+
+  addItem(adder: number, dish: Menu){
+    if(this.cart!=null){
+      const index = this.cart?.dishes?.indexOf(dish);
+      if(this.cart.dishes==null || index==-1){
+        dish.quantity=1;
+        this.cart.dishes.push(dish);
+      }
+      else{
+        this.cart.dishes[index].quantity+=adder;
+        if(this.cart.dishes[index].quantity==0){
+          this.cart.dishes.splice(index,1);
+        }
+      }
+    }
+    else{
+      this.cart.sellerEmail = this.sellerEmail;
+      this.cart.dishes.push(dish);
+    }
+    sessionStorage.setItem("cart", JSON.stringify(this.cart));
   }
 
 }
