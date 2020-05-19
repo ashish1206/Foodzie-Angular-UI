@@ -15,6 +15,8 @@ export class UserCartComponent implements OnInit {
   cartItems: Menu[];
   currAddress: Address;
   totalPrice: number=0;
+  addresses: Address[];
+  tempCurrAddress: Address;
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class UserCartComponent implements OnInit {
     for(let item of this.cart.dishes){
       this.totalPrice+=item.quantity*item.price;
     }
+    this.addresses = JSON.parse(sessionStorage.getItem("addresses"));
   }
 
   addItem(adder: number, dish: Menu){
@@ -46,5 +49,14 @@ export class UserCartComponent implements OnInit {
       this.cart.dishes.push(dish);
     }
     sessionStorage.setItem("cart", JSON.stringify(this.cart));
+  }
+
+  updateCurrAddress(){
+    this.currAddress = this.tempCurrAddress;
+    sessionStorage.setItem("currAddress",JSON.stringify(this.currAddress));
+  }
+
+  updateTempCurrAdd(address: Address){
+    this.tempCurrAddress = address;
   }
 }
