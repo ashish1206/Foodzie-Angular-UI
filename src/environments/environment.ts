@@ -23,7 +23,10 @@ export const environment = {
   updateUserAddressAPIUrl : BASE_URL+ '/user/updateadd',
   changeUserPassAPIUrl : BASE_URL+ '/user/changepass',
   deleteAddPassAPIUrl : BASE_URL+ '/user/deleteadd',
-  updateUserDetailsAPIUrl : BASE_URL+ '/user/updatedetails'
+  updateUserDetailsAPIUrl : BASE_URL+ '/user/updatedetails',
+  placeOrderAPIUrl : BASE_URL+ '/order/placeorder',
+  sellerChangePassAPIUrl : BASE_URL+ '/seller/changepass',
+  sellerUpdateDetailsAPIUrl : BASE_URL+ '/seller/updatedetails'
 };
 
 /*

@@ -20,6 +20,7 @@ import { SellerOrdersComponent } from './seller-orders/seller-orders.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { UserProfileComponent } from './user-profile/user-profile.component'
+import { CookieService } from'ngx-cookie-service'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

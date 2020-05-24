@@ -23,8 +23,8 @@
           </div>
           <div class="panel-footer">
             <div class="row">
-              <p class="col-sm-8">Delivery Address: {{currAddress.addressLine1+','+currAddress.addressLine2+','+currAddress.city}}</p>
-              <p class="col-sm-4">Total price: {{totalPrice | currency: 'INR'}}</p>
+              <p class="col-sm-6">Delivery Address: {{currAddress.addressLine1+','+currAddress.addressLine2+','+currAddress.city}}</p>
+              <p class="col-sm-4 col-sm-offset-2">Total price: {{totalPrice | currency: 'INR'}}</p>
             </div>
           </div>
         </div>
@@ -35,9 +35,14 @@
           </div>
       </ng-template>
   </div>
+
   <div id="locButton">
     <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Location</button>
   </div>
+</div>
+
+<div class="row">
+  <button class="btn btn-primary col-sm-4 col-sm-offset-4" type="button" (click)="placeOrder()" [disabled]="this.cartItems==null || this.cartItems.length==0">Place order</button>
 </div>
 
 <div class="container-fluid">
@@ -61,7 +66,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateCurrAddress()">update</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateCurrAddress()" >update</button>
         </div>
       </div>
 

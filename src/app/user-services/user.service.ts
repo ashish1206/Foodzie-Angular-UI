@@ -63,4 +63,8 @@ export class UserService {
     return this.http.put(url, user, {responseType:'text'});
   }
 
+  placeOrder(order: Order): Observable<number>{
+    const url = environment.placeOrderAPIUrl;
+    return this.http.post<number>(url,order);
+  }
 }

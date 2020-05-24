@@ -32,7 +32,7 @@ export class SellerProfileComponent implements OnInit {
       sName: [this.seller.sName,Validators.required]
     })
     this.changePassForm = this.formBuilder.group({
-      currPassword: ['', Validators.required],
+      password: ['', Validators.required],
       newPassword: ['',Validators.required],
       confPassword: ['',Validators.required]
     })
@@ -47,11 +47,22 @@ export class SellerProfileComponent implements OnInit {
     )
   }
 
-  update(){
-    
+  updateSellerDetails(){
+    let seller: Seller = this.updateForm.value as Seller;
+    this.sellerServiceService.updateSellerDetails(seller).subscribe(
+      res=>{
+
+      }
+    )
   }
 
   changePass(){
+    let seller: Seller = this.changePassForm.value as Seller;
+    seller.email = this.seller.email
+    this.sellerServiceService.changeSellerPassword(seller).subscribe(
+      res=>{
 
+      }
+    )
   }
 }

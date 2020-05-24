@@ -7,4 +7,5 @@ export class User {
     phoneNumber: string;
     username: string;
     addresses: Address[];
+    jwt: string;
 }

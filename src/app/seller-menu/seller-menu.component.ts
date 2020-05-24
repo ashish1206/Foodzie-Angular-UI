@@ -46,7 +46,6 @@ export class SellerMenuComponent implements OnInit {
   }
 
   addItem(adder: number, dish: Menu){
-    console.log(dish)
     if(this.cart!=null){
       let d = this.cart?.dishes?.find(element=>element.dId==dish.dId);
       const index = this.cart.dishes.indexOf(d);
@@ -55,11 +54,8 @@ export class SellerMenuComponent implements OnInit {
         this.cart.dishes.push(dish);
       }
       else{
-        this.cart.dishes[index].quantity+=adder;
         dish.quantity+=adder
-        // let d = this.menu.find(element=>element.dId==dish.dId);
-        // const indexMenu = this.cart.dishes.indexOf(d);
-        // this.menu[indexMenu].quantity = this.cart.dishes[index].quantity
+        this.cart.dishes[index].quantity=dish.quantity;
         if(this.cart.dishes[index].quantity==0){
           this.cart.dishes.splice(index,1);
         }

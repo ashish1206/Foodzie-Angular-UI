@@ -1,3 +1,4 @@
+import { Order } from './../Models/Order';
 import { Address } from './../Models/Address';
 import { Cart } from './../Models/Cart';
 import { UserService } from './../user-services/user.service';
@@ -21,10 +22,12 @@ export class UserCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = JSON.parse(sessionStorage.getItem("cart"));
-    this.cartItems = this.cart.dishes;
+    this.cartItems = this.cart?.dishes;
     this.currAddress = JSON.parse(sessionStorage.getItem("currAddress"));
-    for(let item of this.cart.dishes){
-      this.totalPrice+=item.quantity*item.price;
+    if(this.cartItems!=null){
+      for(let item of this.cartItems){
+        this.totalPrice+=item.quantity*item.price;
+      }
     }
     this.addresses = JSON.parse(sessionStorage.getItem("addresses"));
   }
@@ -58,5 +61,22 @@ export class UserCartComponent implements OnInit {
 
   updateTempCurrAdd(address: Address){
     this.tempCurrAddress = address;
+  }
+
+  placeOrder(){
+    let order: Order = new Order;
+    this.cart = JSON.parse(sessionStorage.getItem("cart"));
+    this.cartItems = this.cart.dishes;
+    order.userEmail = JSON.parse(sessionStorage.getItem("user")).email;
+    order.dishes = this.cartItems;
+    order.sellerEmail = this.cart.sellerEmail;
+    let address: string = this.currAddress.addressLine1+', '+this.currAddress.addressLine2+', '+this.currAddress.city;
+    order.address = address
+    this.userService.placeOrder(order).subscribe(
+      res=>{
+        console.log(res)
+        sessionStorage.setItem("cart","")
+      }
+    )
   }
 }

@@ -4,4 +4,5 @@ export class Order {
     dishes: Menu[];
     userEmail: string;
     sellerEmail: string;
+    address: string;
 }
